@@ -1,5 +1,5 @@
 const root = (req, res) => {
-  res.render("home");
+  res.render("home", { title: "Welcome" });
 };
 
 module.exports = { root };

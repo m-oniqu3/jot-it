@@ -8,11 +8,9 @@ const app = express();
 app.engine("handlebars", engine());
 app.engine(
   "handlebars",
-  engine({
-    partialsDir: path.join(__dirname, "views/partials"),
-    // Other handlebars configuration options...
-  })
+  engine({ partialsDir: path.join(__dirname, "views/partials") })
 );
+
 app.set("view engine", "handlebars");
 app.set("views", "./views");
 
