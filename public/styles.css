@@ -42,7 +42,7 @@
     display: grid;
     gap: 1rem;
     width: 200px;
-    max-width: 300px;
+
     left: 4.8rem;
     top: -4rem;
 }
@@ -105,6 +105,10 @@ form input {
     border-bottom: 1px solid var(--medium-dark);
 }
 
+input:focus {
+    outline: none;
+}
+
 input ::placeholder {
     font-weight: 300;
 }
@@ -129,4 +133,19 @@ form .button {
 .simple-nav figure img {
     width: 100%;
     height: 100%;
+}
+
+
+/* MEDIA QUERIES */
+
+@media (min-width :400px) {
+    .home {
+        align-items: center;
+    }
+
+    .home .content {
+        width: 220px;
+        left: 5.5rem;
+    }
+
 }
