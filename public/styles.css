@@ -9,6 +9,7 @@
 
 :root {
     --dark: #373736;
+    --medium-dark: #3737365c;
 }
 
 .background {
@@ -69,6 +70,63 @@ figure.jot img {
     color: #fff;
     padding: .6rem 1rem;
     width: fit-content;
+    border: none;
     border-radius: 5px;
+    font-size: .9rem;
+}
 
+/* SIGNUP */
+
+.signup,
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 1rem;
+    height: 80vh;
+    width: 90%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    gap: 2rem;
+}
+
+form input {
+    width: 100%;
+    padding: .5rem 0;
+    border: none;
+    border-bottom: 1px solid var(--medium-dark);
+}
+
+input ::placeholder {
+    font-weight: 300;
+}
+
+form .button {
+    width: 100%;
+}
+
+/* SIMPLE NAV */
+
+.simple-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 0;
+}
+
+.simple-nav figure {
+    width: 90px;
+}
+
+.simple-nav figure img {
+    width: 100%;
+    height: 100%;
 }
