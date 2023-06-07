@@ -3,22 +3,11 @@ const root = (req, res) => {
 };
 
 const jot_dashboard = (req, res) => {
-  const menu = [
-    { src: "/images/icons/overview.svg", name: "Overview" },
-    { src: "/images/icons/new.svg", name: "New Note" },
-    {
-      src: "/images/icons/categories.svg",
-      name: "Categories",
-      subMenu: [
-        { src: "/images/icons/general.svg", name: "General" },
-        { src: "/images/icons/todo.svg", name: "Todo" },
-        { src: "/images/icons/resources.svg", name: "Resources" },
-        { src: "/images/icons/reminders.svg", name: "Reminders" },
-      ],
-    },
-  ];
-
-  res.render("dashboard", { title: "Dashboard", menu });
+  res.render("dashboard", { title: "Dashboard" });
 };
 
-module.exports = { root, jot_dashboard };
+const jot_create = (req, res) => {
+  res.render("create", { title: "Create" });
+};
+
+module.exports = { root, jot_dashboard, jot_create };

@@ -10,6 +10,8 @@
 :root {
     --dark: #373736;
     --medium-dark: #3737365c;
+    --grey: #F2F3F5;
+    --border: rgba(255, 205, 134, 0.26);
 }
 
 .background {
@@ -24,7 +26,7 @@
 }
 
 .container {
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -135,85 +137,43 @@ form .button {
     height: 100%;
 }
 
-
-
-/* DASHBOARD */
-
 .dashboard {
-    display: grid;
-    grid-template-columns: 55px 1fr;
-    height: 100vh;
     width: 100%;
+
 }
 
-.sidebar {
-    background-color: #F2F3F5;
-    cursor: pointer;
-}
-
-.sidebar .nav {
+.header nav {
     height: 10vh;
-    display: grid;
-    place-items: center;
-
-}
-
-.sidebar .logo {
-    width: 50px;
-}
-
-.sidebar .logo img {
-    width: 100%;
-    height: 100%;
-}
-
-.sidebar .menu {
-    display: grid;
-    padding: 1rem 0;
-    height: 90vh;
-}
-
-.menu .sidenav,
-.subnav {
     display: flex;
-    flex-direction: column;
-    /* gap: 1.5rem; */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
 }
 
-.menu .sidenav figure,
-.subnav figure {
+.header nav figure {
+    width: 60px;
+}
+
+.header nav figure img {
     width: 100%;
+}
+
+.header nav ul {
+    list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 28px; */
-    padding: 10px 0;
+    gap: .8rem;
 }
 
-.menu .sidenav figure:hover,
-.subnav figure:hover {
-    background-color: rgba(213, 214, 216, 0.563);
-}
-
-.menu .sidenav figure img,
-.subnav figure img {
-    height: 25px;
-}
-
-
-.sidenav figure a {
-    display: none;
+.header nav ul li a {
+    color: var(--dark);
+    font-weight: 500;
     text-decoration: none;
-    color: inherit;
+    font-size: .9rem;
 }
 
-.sidenav .categories {
-    display: none;
-}
-
-
-
-/* MEDIA QUERIES */
 
 @media (min-width :400px) {
     .home {
@@ -224,49 +184,5 @@ form .button {
         width: 220px;
         left: 5.5rem;
     }
-
-}
-
-@media (min-width :768px) {
-    .dashboard {
-        grid-template-columns: 250px 1fr;
-    }
-
-    .sidebar .nav {
-        height: 12vh;
-        place-items: start;
-        padding-left: 10px;
-    }
-
-    .sidebar .logo {
-        width: 80px;
-        display: grid;
-    }
-
-    .menu .sidenav figure,
-    .subnav figure {
-        display: grid;
-        grid-template-columns: 50px 1fr;
-        gap: 1rem;
-        margin: 0 auto;
-        padding-left: 10px;
-    }
-
-    .menu .sidenav figure img,
-    .subnav figure img {
-        margin-left: 10px;
-    }
-
-    .sidenav figure a {
-        display: grid;
-    }
-
-
-
-    .subnav figure img,
-    .subnav figure a {
-        padding-left: 50px;
-    }
-
 
 }
