@@ -1,49 +1,34 @@
 <div class="dashboard">
   <aside class="sidebar">
-    <div class="container">
-      <div class="nav">
 
+    <div class="nav">
+      <div class="container">
         <figure class="logo">
           <img src="/images/jot.png" alt="logo" />
-        </figure>
-      </div>
+        </figure></div>
+    </div>
 
-      <div class="menu">
-        {{#each menu}}
-          <figure>
-            <img src={{src}} alt={{name}} />
-            <a href="">{{name}}</a>
-          </figure>
+    <div class="menu">
+      <div class="conatainer">
+        <div class="sidenav">
+          {{#each menu}}
+            <figure id={{name}}>
+              <img src={{src}} alt={{name}} />
+              <a href="">{{name}}</a>
+            </figure>
 
-          {{#if this.subMenu.length}}
-            {{#each this.subMenu}}
-              <div class="categories">
-                <figure>
-                  <img src={{this.src}} alt={{this.name}} />
-                  <a href="">{{this.name}} </a>
-                </figure>
-              </div>
+            {{#if this.subMenu.length}}
+              <div class="categories subnav">
+                {{#each this.subMenu}}
+                  <figure>
+                    <img src={{this.src}} alt={{this.name}} />
+                    <a href=""> {{this.name}} </a>
+                  </figure>
+                {{/each}}</div>
+            {{/if}}
 
-            {{/each}}
-          {{/if}}
-
-        {{/each}}
-        {{! <div class="categories">
-          <figure><img src="/images/icons/general.svg" alt="icon" />
-            <figcaption>Overview</figcaption>
-          </figure>
-          <figure><img src="/images/icons/todo.svg" alt="icon" />
-            <figcaption>Overview</figcaption>
-          </figure>
-          <figure><img src="/images/icons/resources.svg" alt="icon" />
-            <figcaption>Overview</figcaption>
-          </figure>
-          <figure><img src="/images/icons/reminders.svg" alt="icon" />
-            <figcaption>Overview</figcaption>
-          </figure>
-
-        </div> }}
-
+          {{/each}}
+        </div>
       </div>
     </div>
 
@@ -56,3 +41,5 @@
 
   </main>
 </div>
+
+<script src="js/dashboard.js"></script>

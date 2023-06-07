@@ -5,16 +5,15 @@ const root = (req, res) => {
 const jot_dashboard = (req, res) => {
   const menu = [
     { src: "/images/icons/overview.svg", name: "Overview" },
-    { src: "/images/icons/overview.svg", name: "Overview" },
-    { src: "/images/icons/overview.svg", name: "Overview" },
+    { src: "/images/icons/new.svg", name: "New Note" },
     {
-      src: "/images/icons/overview.svg",
-      name: "Overview",
+      src: "/images/icons/categories.svg",
+      name: "Categories",
       subMenu: [
-        { src: "/images/icons/overview.svg", name: "Overview" },
-        { src: "/images/icons/overview.svg", name: "Overview" },
-        { src: "/images/icons/overview.svg", name: "Overview" },
-        { src: "/images/icons/overview.svg", name: "Overview" },
+        { src: "/images/icons/general.svg", name: "General" },
+        { src: "/images/icons/todo.svg", name: "Todo" },
+        { src: "/images/icons/resources.svg", name: "Resources" },
+        { src: "/images/icons/reminders.svg", name: "Reminders" },
       ],
     },
   ];
