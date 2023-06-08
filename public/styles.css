@@ -28,7 +28,7 @@
 }
 
 .container {
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
 }
 
@@ -177,19 +177,32 @@ form .button {
 }
 
 
+/* CREATE */
+
 .create-form {
     padding-top: 1.8rem;
     gap: 1rem;
-    max-width: 500px;
-    margin: 0 auto;
+    width: 90%;
+    position: relative;
 }
 
-.create-form .input {
+.create-form .submit {
+    background-color: var(--border-left);
     border: none;
-    border-left: 10px solid var(--border-left);
-    padding-left: 10px;
-    color: var(--dark);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 1rem;
+    right: -1.5rem;
+}
 
+.create-form .submit img {
+    width: 18px;
+    height: 18px;
 }
 
 .create-form #title {
@@ -260,6 +273,13 @@ input[type='radio'] {
         left: 5.5rem;
     }
 
+    .create-form {
+        max-width: 500px;
+        margin: 0 auto;
+    }
 
+    .create-form .submit {
+        top: 1.9rem;
+    }
 
 }
