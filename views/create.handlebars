@@ -1,6 +1,37 @@
 <div class="create header">
   <div class="container">
-  {{> nav}}
-  </div>
+    {{> nav}}
 
+    <form class="create-form">
+
+      <input class="input" id="title" type="text" placeholder="title .." />
+      <input
+        class="input"
+        id="subtitle"
+        type="text"
+        placeholder="subtitle .."
+      />
+
+      <div class="options">
+        <span>
+          <input type="radio" name="option" value="general" />
+          <label for="general"> general</label>
+        </span>
+
+        <span>
+          <input type="radio" name="option" value="todo" />
+          <label for="todo"> todo</label>
+        </span>
+
+        <span>
+          <input type="radio" name="option" value="random" />
+          <label for="random"> random</label>
+        </span>
+
+      </div>
+
+      <textarea placeholder="jot it down .."></textarea>
+
+    </form>
+  </div>
 </div>

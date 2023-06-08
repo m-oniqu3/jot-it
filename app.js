@@ -7,10 +7,9 @@ const app = express();
 
 app.engine("handlebars", engine());
 app.engine(
-  "handlebars",
+  "hbs",
   engine({ partialsDir: path.join(__dirname, "views/partials") })
 );
-
 app.set("view engine", "handlebars");
 app.set("views", "./views");
 

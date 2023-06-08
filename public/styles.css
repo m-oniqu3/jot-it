@@ -12,6 +12,8 @@
     --medium-dark: #3737365c;
     --grey: #F2F3F5;
     --border: rgba(255, 205, 134, 0.26);
+    --border-left: rgba(55, 55, 54, 0.23);
+    --light-grey: rgba(55, 55, 54, 0.55);
 }
 
 .background {
@@ -174,6 +176,69 @@ form .button {
     font-size: .9rem;
 }
 
+
+.create-form {
+    padding-top: 1.8rem;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.create-form .input {
+    border: none;
+    border-left: 10px solid var(--border-left);
+    padding-left: 10px;
+    color: var(--dark);
+}
+
+.create-form .input#title {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.create-form .input#subtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.create-form ::placeholder {
+    color: var(--light-grey)
+}
+
+.create-form .options {
+    display: flex;
+    gap: .8rem;
+    border-left: 10px solid var(--border-left);
+    padding-left: 10px;
+    color: var(--light-grey);
+    font-style: .9rem;
+    font-weight: 500;
+}
+
+.create-form .options span {
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+
+}
+
+.create-form textarea {
+    min-height: 20vh;
+    border: none;
+    border-left: 10px solid var(--border-left);
+    padding-left: 10px;
+    font-weight: 400;
+    color: var(--dark);
+    resize: none;
+}
+
+.create-form textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.create-form textarea:focus {
+    outline: none;
+}
 
 @media (min-width :400px) {
     .home {
