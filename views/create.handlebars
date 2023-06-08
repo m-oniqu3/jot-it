@@ -4,13 +4,21 @@
 
     <form class="create-form">
 
-      <input class="input" id="title" type="text" placeholder="title .." />
-      <input
-        class="input"
+      <textarea
+        class="textarea"
+        id="title"
+        type="text"
+        placeholder="title .."
+        {{!-- oninput="resizeTextArea()" --}}
+    ></textarea>
+
+      <textarea
+        class="textarea"
         id="subtitle"
         type="text"
         placeholder="subtitle .."
-      />
+        {{!-- oninput="resizeTextArea()" --}}
+      ></textarea>
 
       <div class="options">
         <span>
@@ -30,8 +38,15 @@
 
       </div>
 
-      <textarea placeholder="jot it down .."></textarea>
+      <textarea
+        class="textarea"
+          id="content"
+        {{!-- oninput="resizeTextArea()" --}}
+        placeholder="jot it down .."
+      ></textarea>
 
     </form>
   </div>
 </div>
+
+<script src="/js/create.js"></script>

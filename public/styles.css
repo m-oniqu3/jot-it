@@ -189,16 +189,24 @@ form .button {
     border-left: 10px solid var(--border-left);
     padding-left: 10px;
     color: var(--dark);
+
 }
 
-.create-form .input#title {
+.create-form #title {
     font-size: 1.8rem;
     font-weight: 700;
+    height: 32px;
 }
 
-.create-form .input#subtitle {
+.create-form #subtitle {
     font-size: 1.2rem;
     font-weight: 500;
+    height: 28px;
+}
+
+.create-form #content {
+    height: 24px;
+    font-size: clamp(.9rem, 3vw, 1rem);
 }
 
 .create-form ::placeholder {
@@ -208,7 +216,7 @@ form .button {
 .create-form .options {
     display: flex;
     gap: .8rem;
-    border-left: 10px solid var(--border-left);
+    border-left: 8px solid var(--border-left);
     padding-left: 10px;
     color: var(--light-grey);
     font-style: .9rem;
@@ -219,15 +227,17 @@ form .button {
     display: flex;
     align-items: center;
     gap: .2rem;
+}
 
+input[type='radio'] {
+    accent-color: var(--dark);
+    cursor: pointer;
 }
 
 .create-form textarea {
-    min-height: 20vh;
     border: none;
     border-left: 10px solid var(--border-left);
     padding-left: 10px;
-    font-weight: 400;
     color: var(--dark);
     resize: none;
 }
@@ -249,5 +259,7 @@ form .button {
         width: 220px;
         left: 5.5rem;
     }
+
+
 
 }
