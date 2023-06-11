@@ -99,7 +99,7 @@ form {
     display: flex;
     flex-direction: column;
     padding: 1rem 0;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 form input {
@@ -116,6 +116,15 @@ input:focus {
 input ::placeholder {
     font-weight: 300;
 }
+
+form .error {
+    color: red;
+    font-size: .8rem;
+    font-weight: 400;
+    margin-top: -1rem;
+}
+
+
 
 form .button {
     width: 100%;
@@ -280,6 +289,7 @@ input[type='radio'] {
 
     .create-form .submit {
         top: 1.9rem;
+        right: -2rem;
     }
 
 }

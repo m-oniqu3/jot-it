@@ -5,10 +5,10 @@ const authControllers = require("../controllers/authController");
 const router = Router();
 
 const { root, jot_dashboard, jot_create } = controllers;
-const { signup, login } = authControllers;
+const { signup, login, createUser } = authControllers;
 
 router.route("/").get(root);
-router.route("/signup").get(signup);
+router.route("/signup").get(signup).post(createUser);
 router.route("/login").get(login);
 router.route("/jots").get(jot_dashboard);
 router.route("/jots-create").get(jot_create);
