@@ -1,23 +1,11 @@
+const jwt = require("jsonwebtoken");
+const handleError = require("./../utils/errors");
 const User = require("../models/userModel");
 
-const handleError = (err) => {
-  let errorObject = { name: "", email: "", password: "" };
-
-  //duplicate error code
-  if (err.code === 11000) {
-    errorObject.email = "That email is already registered";
-    return errorObject;
-  }
-
-  // validation errors
-  // get the values then loop over them
-  if (err.name === "ValidationError") {
-    Object.values(err.errors).forEach((error) => {
-      errorObject[error.path] = error.message;
-    });
-  }
-
-  return errorObject;
+const createToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRES_IN,
+  });
 };
 
 const signup = (req, res) => {
@@ -27,17 +15,25 @@ const signup = (req, res) => {
 const createUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-
     const user = await User.create({ name, email, password });
 
-    console.log(name, email, password);
+    const token = createToken(user._id);
 
-    res.status(201).json({ userId: user._id });
+    res.cookie("jwt", token, {
+      httpOnly: true,
+      maxAge: process.env.COOKIE_EXPIRES_IN * 1000,
+    });
+
+    res.status(201).json({
+      status: "success",
+      token,
+      data: { user: user._id },
+    });
   } catch (error) {
     console.log(error);
 
     const errorDetails = handleError(error);
-    res.status(400).json({ error: errorDetails });
+    res.status(400).json({ status: "failed", message: errorDetails });
   }
 };
 

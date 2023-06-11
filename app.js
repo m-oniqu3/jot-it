@@ -1,5 +1,7 @@
 const path = require("path");
 const express = require("express");
+const cookieParser = require("cookie-parser");
+
 const { engine } = require("express-handlebars");
 const router = require("./routes/jotRoutes");
 
@@ -15,6 +17,7 @@ app.set("views", "./views");
 
 app.use(express.json());
 app.use(express.static("public"));
+app.use(cookieParser());
 
 app.use(router);
 
