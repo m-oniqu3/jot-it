@@ -1,14 +1,14 @@
-{{> simpleNav}}
+{{> simpleNav}} 
 
 <div class="container signup">
 
   <h2>Create Account</h2>
 
-  <p class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit
-    dignissimos.</p>
+  <p class="text">
+    Jot down your thoughts and ideas. Create an account to get started.
+  </p>
 
-  <form>
-
+  <form id="form">
     <input type="text" name="name" placeholder="Name" />
     <p class="error name"></p>
 
@@ -18,8 +18,10 @@
     <input type="password" name="password" placeholder="Password" />
     <p class="error password"></p>
 
-    <button class="button">Submit</button>
+    <button type="submit" disabled class="button submit">Submit</button>
 
   </form>
 
 </div>
+
+<script src="/js/signup.js"></script>

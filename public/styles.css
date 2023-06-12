@@ -68,6 +68,8 @@ figure.jot img {
     color: var(--dark);
 }
 
+
+
 .button {
     text-decoration: none;
     background-color: var(--dark);
@@ -77,7 +79,20 @@ figure.jot img {
     border: none;
     border-radius: 5px;
     font-size: .9rem;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
+
+.button:hover {
+    background-color: black;
+}
+
+.button[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+
 
 /* SIGNUP */
 
