@@ -30,6 +30,27 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
+userSchema.statics.checkCredentials = async function (email, password) {
+  // select password field because it is not selected by default
+  const user = await this.findOne({ email }).select("+password");
+
+  if (!validator.isEmail(email)) {
+    throw new Error("Invalid email format");
+  }
+
+  if (!user) {
+    throw Error("incorrect email");
+  }
+
+  const isMatch = await bcrypt.compare(password, user.password);
+
+  if (!isMatch) {
+    throw Error("incorrect password");
+  }
+
+  return user;
+};
+
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;

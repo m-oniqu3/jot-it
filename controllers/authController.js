@@ -41,9 +41,29 @@ const login = (req, res) => {
   res.render("login", { link: "/signup", text: "Sign Up", title: "Login" });
 };
 
+const loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await User.checkCredentials(email, password);
+    const token = createToken(user._id);
+
+    res.cookie("jwt", token, {
+      httpOnly: true,
+      maxAge: process.env.COOKIE_EXPIRES_IN * 1000,
+    });
+
+    res.status(200).json({ status: "success", token });
+  } catch (error) {
+    const errorDetails = handleError(error);
+
+    res.status(400).json({ status: "failed", message: errorDetails });
+  }
+};
+
 const logout = (req, res) => {
   res.cookie("jwt", "", { maxAge: 0 });
   res.redirect("/");
 };
 
-module.exports = { signup, login, createUser, logout };
+module.exports = { signup, login, createUser, logout, loginUser };

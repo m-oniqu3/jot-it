@@ -4,17 +4,23 @@
 
   <h2>Login</h2>
 
-  <p class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit
-    dignissimos.</p>
+  <p class="text">
+    Welcome back! Login to your account to jot down your thoughts and ideas.
+  </p>
 
-  <form >
+  <form id="form">
 
-    <input type="text" name="name" placeholder="Name" />
     <input type="email" name="email" placeholder="Email" />
-    <input type="password" name="password" placeholder="Password" />
+     <p class="error email"></p>
 
-    <button class="button">Login</button>
+    <input type="password" name="password" placeholder="Password" />
+     <p class="error password"></p>
+
+
+    <button type="submit" disabled class="button submit">Login</button>
 
   </form>
 
 </div>
+
+<script src="/js/login.js"></script>

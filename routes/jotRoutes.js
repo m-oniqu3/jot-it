@@ -6,13 +6,13 @@ const protectRoute = require("../middleware/authMiddleware");
 const router = Router();
 
 const { root, jot_dashboard, jot_create } = controllers;
-const { signup, login, createUser, logout } = authControllers;
+const { signup, login, createUser, logout, loginUser } = authControllers;
 
 router.route("/").get(root);
 router.route("/signup").get(signup).post(createUser);
-router.route("/login").get(login);
+router.route("/login").get(login).post(loginUser);
 router.route("/jots").get(protectRoute, jot_dashboard);
-router.route("/jots-create").get(jot_create);
+router.route("/jots-create").get(protectRoute, jot_create);
 router.route("/logout").post(logout);
 
 module.exports = router;
