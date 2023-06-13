@@ -41,4 +41,9 @@ const login = (req, res) => {
   res.render("login", { link: "/signup", text: "Sign Up", title: "Login" });
 };
 
-module.exports = { signup, login, createUser };
+const logout = (req, res) => {
+  res.cookie("jwt", "", { maxAge: 0 });
+  res.redirect("/");
+};
+
+module.exports = { signup, login, createUser, logout };

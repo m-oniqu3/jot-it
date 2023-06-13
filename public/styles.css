@@ -200,6 +200,17 @@ form .button {
     font-size: .9rem;
 }
 
+.header .links {
+    display: flex;
+    justify-content: flex-end;
+    gap: .8rem;
+    width: calc(100% - 60px);
+}
+
+.header .links form {
+    width: fit-content;
+}
+
 
 /* CREATE */
 
