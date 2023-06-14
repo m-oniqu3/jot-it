@@ -1,6 +1,23 @@
 <div class="dashboard header">
   <div class="container">
-  {{> nav}}
-  </div>
+     {{> nav}}
 
+      {{#if notes.length}}
+        <ul class="notes-grid">
+          {{#each notes}}
+            <li>
+              <a href="/jots/{{this._id}}" class="note">
+                <h2 class="title">{{this.title}}</h2>
+                <p class="subtitle">{{this.subtitle}}</p>
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p>No items available.</p>
+      {{/if}}
+
+
+
+  </div>
 </div>

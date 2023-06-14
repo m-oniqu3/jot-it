@@ -5,8 +5,20 @@ const root = (req, res) => {
   res.render("home", { title: "Welcome" });
 };
 
-const jot_dashboard = (req, res) => {
-  res.render("dashboard", { title: "Dashboard" });
+const jot_dashboard = async (req, res) => {
+  const user = res.locals.user;
+
+  console.log("dashboard user", user);
+
+  if (!user._id) {
+    return res.redirect("/login");
+  }
+
+  const notes = await Note.find({ user: user._id })
+    .lean()
+    .sort({ createdAt: -1 });
+
+  res.render("dashboard", { title: "Dashboard", notes });
 };
 
 const jot_create_get = (req, res) => {

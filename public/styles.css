@@ -13,6 +13,8 @@
     --grey: #F2F3F5;
     --border: rgba(255, 205, 134, 0.26);
     --border-left: rgba(55, 55, 54, 0.23);
+    --border-left-light: rgba(255, 205, 134, 0.26);
+    --border-left-bright: #F0920D;
     --light-grey: rgba(55, 55, 54, 0.55);
 }
 
@@ -163,10 +165,35 @@ form .button {
     height: 100%;
 }
 
+/* DASHBOARD */
+
 .dashboard {
     width: 100%;
-
 }
+
+.notes-grid {
+    padding: 3rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+    list-style: none;
+}
+
+a.note {
+    text-decoration: none;
+    color: var(--dark);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    border-left: 10px solid var(--border-left-light);
+    padding-left: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+a.note:hover {
+    border-left: 10px solid var(--border-left-bright);
+}
+
 
 .header nav {
     height: 10vh;
