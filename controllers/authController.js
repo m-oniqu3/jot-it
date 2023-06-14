@@ -66,11 +66,7 @@ const logout = (req, res) => {
   // res.clearCookie("jwt");
   res.cookie("jwt", "", { maxAge: 1 });
 
-  //prevent user from accessing protected routes after logging out
-
-  res.set("Cache-Control", "no-store, no-cache, must-revalidate, private");
-
-  res.redirect("/login");
+  return res.redirect("/login");
 };
 
 module.exports = { signup, login, createUser, logout, loginUser };

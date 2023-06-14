@@ -2,20 +2,30 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 
 const protectRoute = (req, res, next) => {
-  const token = req.cookies.jwt;
+  const user = res.locals.user;
 
-  if (!token) {
+  console.log(user);
+
+  if (!user || !user._id) {
     return res.redirect("/login");
   }
 
-  //verify token
-  jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
-    if (err) {
-      return res.redirect("/login");
-    }
+  return next();
 
-    return next();
-  });
+  // const token = req.cookies.jwt;
+
+  // if (!token) {
+  //   return res.redirect("/login");
+  // }
+
+  // //verify token
+  // jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
+  //   if (err) {
+  //     return res.redirect("/login");
+  //   }
+
+  //   return next();
+  // });
 };
 
 const checkUser = (req, res, next) => {

@@ -12,14 +12,13 @@ const { protectRoute, checkLoggedIn, checkUser } = middleware;
 // global middleware
 router.route("*").all(checkUser);
 
+router.route("/jots/*").all(protectRoute);
+
 router.route("/").get(root);
 router.route("/signup").get(checkLoggedIn, signup).post(createUser);
 router.route("/login").get(checkLoggedIn, login).post(loginUser);
-router.route("/jots").get(protectRoute, jot_dashboard);
-router
-  .route("/jots-create")
-  .get(protectRoute, jot_create_get)
-  .post(jot_create_post);
+router.route("/jots").get(jot_dashboard);
+router.route("/jots/create").get(jot_create_get).post(jot_create_post);
 router.route("/logout").post(logout);
 
 module.exports = router;
