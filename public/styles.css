@@ -19,7 +19,7 @@
 }
 
 .background {
-    background-image: url('https://images.unsplash.com/photo-1515787366009-7cbdd2dc587b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+    background-image: url('https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -39,7 +39,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
+    top: 5rem;
+    left: 2rem;
     gap: 1rem;
 }
 
@@ -171,7 +172,7 @@ form .button {
 .notes-grid {
     padding: 3rem 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 4rem;
     list-style: none;
 }
@@ -185,7 +186,15 @@ a.note {
     border-left: 10px solid var(--light-orange);
     padding-left: 10px;
     transition: all 0.3s ease-in-out;
-    width: 380px;
+    text-transform: lowercase;
+}
+
+a.note h2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 a.note:hover {
@@ -208,6 +217,8 @@ a.note:hover {
     max-width: 300px;
     gap: 1rem;
 }
+
+
 
 .welcome .content span {
     color: var(--orange)
@@ -353,7 +364,26 @@ input[type='radio'] {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    position: relative;
+}
 
+.details .submit {
+    background-color: var(--orange);
+    border: none;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 1rem;
+    right: 0rem;
+}
+
+.details .submit img {
+    width: 18px;
+    height: 18px;
 }
 
 .details .created {
@@ -389,7 +419,10 @@ input[type='radio'] {
 @media (min-width :400px) {
     .home {
         align-items: center;
+        left: 0;
+        top: 3rem;
     }
+
 
     .home .content {
         width: 220px;
@@ -405,6 +438,27 @@ input[type='radio'] {
     .create-form .submit {
         top: 1.9rem;
         right: -2rem;
+    }
+
+    .details .submit {
+        top: 3rem;
+        right: -2rem;
+    }
+
+    .details .title,
+    .details .subtitle,
+    .details .created,
+    .details .content,
+    .create-form textarea {
+        padding-left: 20px;
+    }
+
+    .notes-grid {
+        padding: 3rem 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 4rem;
+        list-style: none;
     }
 
 }
