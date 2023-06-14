@@ -4,12 +4,13 @@
 
     <form class="create-form">
 
-      <div class="submit">
-        <img src="/images/icons/checkmark.svg" alt="checkmark">
-      </div>
+      <button type="submit" class="submit" disabled>
+        <img src="/images/icons/checkmark.svg" alt="checkmark" />
+      </button>
 
       <textarea
         class="textarea"
+        name="title"
         id="title"
         type="text"
         placeholder="title .."
@@ -17,6 +18,7 @@
 
       <textarea
         class="textarea"
+        name="subtitle"
         id="subtitle"
         type="text"
         placeholder="subtitle .."
@@ -24,17 +26,17 @@
 
       <div class="options">
         <span>
-          <input type="radio" name="option" value="general" />
+          <input type="radio" name="category" value="general" />
           <label for="general"> general</label>
         </span>
 
         <span>
-          <input type="radio" name="option" value="todo" />
+          <input type="radio" name="category" value="todo" />
           <label for="todo"> todo</label>
         </span>
 
         <span>
-          <input type="radio" name="option" value="random" />
+          <input type="radio" name="category" value="random" />
           <label for="random"> random</label>
         </span>
 
@@ -42,6 +44,7 @@
 
       <textarea
         class="textarea"
+        name="content"
         id="content"
         placeholder="jot it down .."
       ></textarea>

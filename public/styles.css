@@ -87,7 +87,7 @@ figure.jot img {
     background-color: black;
 }
 
-.button[disabled] {
+button[disabled] {
     opacity: 0.5;
     pointer-events: none;
 }
@@ -222,7 +222,7 @@ form .button {
 }
 
 .create-form .submit {
-    background-color: var(--border-left);
+    background-color: var(--dark);
     border: none;
     border-radius: 50%;
     display: grid;

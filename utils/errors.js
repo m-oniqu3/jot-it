@@ -35,4 +35,16 @@ const handleError = (err) => {
   return errorObject;
 };
 
-module.exports = handleError;
+const handleNoteError = (err) => {
+  const errorObject = { title: "", subtitle: "", category: "", content: "" };
+
+  if (err.name === "ValidationError") {
+    Object.values(err.errors).forEach((error) => {
+      errorObject[error.path] = error.message;
+    });
+  }
+
+  return errorObject;
+};
+
+module.exports = { handleError, handleNoteError };
