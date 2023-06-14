@@ -4,6 +4,11 @@ const content = document.querySelector("#content");
 
 const form = document.querySelector(".create-form");
 
+const titleError = document.querySelector(".error.title");
+const subtitleError = document.querySelector(".error.subtitle");
+const categoryError = document.querySelector(".error.category");
+const contentError = document.querySelector(".error.content");
+
 const textareas = [
   { name: title, height: 32 },
   { name: subtitle, height: 28 },
@@ -22,6 +27,12 @@ textareas.forEach((textarea) => {
 form.addEventListener("input", () => {
   const button = document.querySelector(".submit");
   const valid = title.value && subtitle.value && content.value;
+
+  //clear error messages
+  titleError.textContent = "";
+  subtitleError.textContent = "";
+  categoryError.textContent = "";
+  contentError.textContent = "";
 
   if (valid) {
     button.disabled = false;
@@ -54,8 +65,17 @@ form.addEventListener("submit", async function (e) {
 
     const result = await response.json();
 
-    console.log(result);
+    if (!response.ok) throw new Error(result.message);
+
+    location.assign("/jots");
   } catch (error) {
     console.log(error);
+
+    const message = error.message;
+
+    titleError.textContent = message.title;
+    subtitleError.textContent = message.subtitle;
+    categoryError.textContent = message.category;
+    contentError.textContent = message.content;
   }
 });
