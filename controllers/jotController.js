@@ -14,11 +14,13 @@ const jot_dashboard = async (req, res) => {
     return res.redirect("/login");
   }
 
+  console.log("user", user);
+
   const notes = await Note.find({ user: user._id })
     .lean()
     .sort({ createdAt: -1 });
 
-  res.render("dashboard", { title: "Dashboard", notes });
+  res.render("dashboard", { title: "Dashboard", notes, user: user.name });
 };
 
 const jot_create_get = (req, res) => {
