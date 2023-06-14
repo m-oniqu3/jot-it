@@ -10,7 +10,7 @@ const jot_dashboard = async (req, res) => {
 
   console.log("dashboard user", user);
 
-  if (!user._id) {
+  if (!user || !user._id) {
     return res.redirect("/login");
   }
 

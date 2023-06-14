@@ -62,8 +62,15 @@ const loginUser = async (req, res) => {
 };
 
 const logout = (req, res) => {
-  res.cookie("jwt", "", { maxAge: 0 });
-  res.redirect("/");
+  res.locals.user = null;
+  // res.clearCookie("jwt");
+  res.cookie("jwt", "", { maxAge: 1 });
+
+  //prevent user from accessing protected routes after logging out
+
+  res.set("Cache-Control", "no-store, no-cache, must-revalidate, private");
+
+  res.redirect("/login");
 };
 
 module.exports = { signup, login, createUser, logout, loginUser };
