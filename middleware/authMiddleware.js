@@ -4,8 +4,6 @@ const User = require("../models/userModel");
 const protectRoute = (req, res, next) => {
   const user = res.locals.user;
 
-  console.log(user);
-
   if (!user || !user._id) {
     return res.redirect("/login");
   }

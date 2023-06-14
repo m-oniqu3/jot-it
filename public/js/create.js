@@ -48,7 +48,7 @@ form.addEventListener("submit", async function (e) {
   const title = formData.get("title");
   const subtitle = formData.get("subtitle");
   const category = formData.get("category");
-  const content = formData.get("content");
+  const content = formData.get("content").trim();
 
   let values = { title, subtitle, category, content };
 

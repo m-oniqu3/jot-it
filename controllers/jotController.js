@@ -14,8 +14,6 @@ const jot_dashboard = async (req, res) => {
     return res.redirect("/login");
   }
 
-  console.log("user", user);
-
   const notes = await Note.find({ user: user._id })
     .lean()
     .sort({ createdAt: -1 });
@@ -24,6 +22,12 @@ const jot_dashboard = async (req, res) => {
 };
 
 const jot_create_get = (req, res) => {
+  const user = res.locals.user;
+
+  if (!user || !user._id) {
+    return res.redirect("/login");
+  }
+
   res.render("create", { title: "Create" });
 };
 
@@ -60,4 +64,32 @@ const jot_create_post = async (req, res) => {
   }
 };
 
-module.exports = { root, jot_dashboard, jot_create_get, jot_create_post };
+const jot_details = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    if (!id) {
+      return res.send("Invalid note id");
+    }
+
+    const note = await Note.findById(id).lean();
+
+    const newNote = {
+      ...note,
+      createdAt: note.createdAt?.toDateString().slice(4) || "",
+      content: note.content.replace(/(?:\r\n|\r|\n)/g, "<br>"),
+    };
+
+    res.render("details", { title: "Details", note: newNote });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = {
+  root,
+  jot_dashboard,
+  jot_create_get,
+  jot_create_post,
+  jot_details,
+};
