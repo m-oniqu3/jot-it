@@ -5,8 +5,14 @@ const middleware = require("../middleware/authMiddleware");
 
 const router = Router();
 
-const { root, jot_dashboard, jot_create_get, jot_create_post, jot_details } =
-  controllers;
+const {
+  root,
+  jot_dashboard,
+  jot_create_get,
+  jot_create_post,
+  jot_details,
+  delete_jot,
+} = controllers;
 const { signup, login, createUser, logout, loginUser } = authControllers;
 const { protectRoute, checkLoggedIn, checkUser } = middleware;
 
@@ -20,7 +26,7 @@ router.route("/signup").get(checkLoggedIn, signup).post(createUser);
 router.route("/login").get(checkLoggedIn, login).post(loginUser);
 
 router.route("/jots/create").get(jot_create_get).post(jot_create_post);
-router.route("/jots/:id").get(jot_details);
+router.route("/jots/:id").get(jot_details).delete(delete_jot);
 router.route("/jots").get(jot_dashboard);
 
 router.route("/logout").post(logout);

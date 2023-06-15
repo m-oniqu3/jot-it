@@ -76,7 +76,7 @@ const jot_details = async (req, res) => {
 
     const newNote = {
       ...note,
-      createdAt: note.createdAt?.toDateString().slice(4) || "",
+      createdAt: note.createdAt.toDateString().slice(4),
       content: note.content.replace(/(?:\r\n|\r|\n)/g, "<br>"),
     };
 
@@ -86,10 +86,32 @@ const jot_details = async (req, res) => {
   }
 };
 
+const delete_jot = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    if (!id) {
+      return res
+        .status(400)
+        .json({ status: "failed", message: "Invalid note ID" });
+    }
+
+    await Note.findByIdAndDelete(id);
+
+    res.status(204).json({ status: "success", data: null });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(400)
+      .json({ status: "failed", message: "Failed to delete note" });
+  }
+};
+
 module.exports = {
   root,
   jot_dashboard,
   jot_create_get,
   jot_create_post,
   jot_details,
+  delete_jot,
 };
