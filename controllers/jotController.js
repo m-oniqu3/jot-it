@@ -86,6 +86,7 @@ const jot_details = async (req, res) => {
   }
 };
 
+//todo refactor to search by id then check if there was no note found
 const delete_jot = async (req, res) => {
   try {
     const id = req.params.id;
